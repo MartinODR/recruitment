@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;     //chequear lo de namespaces 
+namespace App\Controller;     //learn namespaces 
 
 class HomeController
 {
