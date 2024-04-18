@@ -1,4 +1,6 @@
 <?php
+
+echo "Home";
 //phpinfo(); //los archivos php no se cierran para que las clases se preserven abiertas 
 
 //Hier ist der Einstiegpunkt in unsere app 
@@ -30,6 +32,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
    // $r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
 });
 
+
+
 //HTTP-Methode und URI abrufen
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
@@ -54,6 +58,8 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
+        list($class, $method) = explode('::', $handler, 2);
+        call_user_func_array([new $class, $method], $vars);
         // ... call $handler with $vars
         break;
 }
