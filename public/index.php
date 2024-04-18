@@ -13,5 +13,8 @@ echo'Hallo 2306 / -7';
 //Autoloading
 require_once __DIR__ . '/../vendor/autoload.php';
 
+//codigo temporal
 $controller = new \App\Controller\HomeController(); //esto crea un objeto llamado desde el controlador(HomeController) y llama al metodo index()
 $controller->index();
+
+
